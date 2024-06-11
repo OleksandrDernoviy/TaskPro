@@ -1,0 +1,252 @@
+import styled from 'styled-components';
+
+import { ReactComponent as AppLogoSvg } from 'images/sidebar/logo-icon.svg';
+import { ReactComponent as AppBtnSvg } from 'images/sidebar/add-btn.svg';
+import { ReactComponent as AppHelpsBtnSvg } from 'images/sidebar/help-icon.svg';
+import { ReactComponent as AppLogOutBtnSvg } from 'images/sidebar/log-out-icon.svg';
+
+export const StyledOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 90;
+
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
+`;
+
+export const Aside = styled.aside`
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  width: 225px;
+  background: ${props => props.theme.sidebar.background};
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transform: translateX(-100%);
+  transition: transform 250ms ease-in;
+  padding: 14px;
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 260px;
+    padding: 24px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    position: static;
+    transform: translateX(0);
+    transition: none;
+    width: 260px;
+    z-index: 0;
+  }
+`;
+
+export const LogoBox = styled.div`
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+`;
+
+export const AppLogo = styled(AppLogoSvg)`
+  width: 32px;
+  height: 32px;
+
+  & .first-name {
+    color: ${props => props.theme.sidebar.iconLogoBackground};
+  }
+  & .second-name {
+    color: ${props => props.theme.sidebar.iconLogoImage};
+  }
+`;
+
+export const LogoBoxTitle = styled.h2`
+  color: ${props => props.theme.sidebar.textMain};
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.64px;
+`;
+
+export const AddBoards = styled.div`
+  margin-bottom: 26px;
+`;
+
+export const AddBoardsTitle = styled.h3`
+  font-weight: 400;
+  font-size: 12px;
+  color: ${props => props.theme.sidebar.textSecondary};
+  letter-spacing: -0.32px;
+  padding-bottom: 8px;
+`;
+
+export const AddBoardsCreateBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-top: solid 1px rgba(255, 255, 255, 0.5);
+  border-bottom: solid 1px rgba(255, 255, 255, 0.5);
+`;
+
+export const AddBoardsCreateText = styled.div`
+  font-weight: 500;
+  font-size: 14px;
+  color: ${props => props.theme.sidebar.textMain};
+  letter-spacing: -0.32px;
+`;
+
+export const AddBoardsCreateBtnWrap = styled.button`
+  border: none;
+  background-color: transparent;
+`;
+
+export const AddBoardsCreateBtn = styled(AppBtnSvg)`
+  width: 40px;
+  height: 36px;
+  border-radius: 6px;
+  & .plus-back {
+    color: ${props => props.theme.sidebar.addButtonHover};
+
+    &:hover {
+      color: ${props => props.theme.sidebar.iconLogoutHover};
+    }
+  }
+  & .plus {
+    color: ${props => props.theme.sidebar.addButtonColor};
+  }
+`;
+
+export const BoardsList = styled.ul`
+  min-height: 185px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${props => props.theme.sidebar.addButtonHover};
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: ${props => props.theme.sidebar.textMain};
+    border-radius: 5px;
+    border: 1px solid ${props => props.theme.sidebar.addButtonHover};
+  }
+`;
+
+export const BoxHelp = styled.div`
+  border-radius: 8px;
+  background-color: ${props => props.theme.needHelp.background};
+  padding: 8px 16px 16px;
+  margin-bottom: 24px;
+  margin-top: auto;
+`;
+
+export const BoxHelpText = styled.p`
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: -0.32px;
+  color: ${props => props.theme.needHelp.textMain};
+  margin-top: 14px;
+  margin-bottom: 18px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 143%;
+  }
+`;
+
+export const BoxHelpSelectedText = styled.span`
+  color: ${props => props.theme.themePopup.textAccent};
+`;
+
+export const BoxHelpBtnOpenModal = styled.button`
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+
+  &:hover {
+    svg {
+      color: ${props => props.theme.sidebar.iconLogoutHover};
+    }
+    p {
+      color: ${props => props.theme.sidebar.iconLogoutHover};
+    }
+  }
+`;
+
+export const BoxHelpBtnIcon = styled(AppHelpsBtnSvg)`
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  color: ${props => props.theme.needHelp.icon};
+`;
+
+export const BoxHelpBtnText = styled.p`
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: -0.32px;
+  color: ${props => props.theme.needHelp.textMain};
+`;
+
+export const LogOut = styled.div`
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  color: #fff;
+`;
+
+export const LogOutIconBtnWrap = styled.button`
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    svg {
+      color: ${props => props.theme.sidebar.iconLogoutHover};
+    }
+    p {
+      color: ${props => props.theme.sidebar.iconLogoutHover};
+    }
+  }
+`;
+
+export const LogOutIcon = styled(AppLogOutBtnSvg)`
+  width: 32px;
+  height: 32px;
+  margin-right: 14px;
+  color: ${props => props.theme.needHelp.icon};
+`;
+
+export const LogOutText = styled.p`
+  font-weight: 500;
+  font-size: 14px;
+  color: ${props => props.theme.needHelp.textMain};
+
+  @media screen and (min-width: 1440px) {
+    font-size: 16px;
+  }
+`;
