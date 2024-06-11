@@ -18,7 +18,7 @@ const clientId =
   '1023104140440-vss57ruceqsueoq2cg98ord06sso814v.apps.googleusercontent.com';
 
 const router = createBrowserRouter(createRoutesFromElements(routing()), {
-  basename: '/TaskPro-FrontEnd-Team5',
+  basename: '/TaskPro',
 });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
